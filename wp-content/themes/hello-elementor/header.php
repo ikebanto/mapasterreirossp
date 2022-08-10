@@ -11,8 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 ?>
-<!doctype html>
-<html <?php language_attributes(); ?>>
+<!DOCTYPE html>
+
+	<?php language_attributes(); ?>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<?php $viewport_content = apply_filters( 'hello_elementor_viewport_content', 'width=device-width, initial-scale=1' ); ?>

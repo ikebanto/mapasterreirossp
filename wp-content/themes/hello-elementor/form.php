@@ -69,6 +69,9 @@ get_header();
 
                         let address = `${numero}%20${rua}%20${bairro}%20${cidade}%20${estado}`;
                         address = address.replace(/ /g, '%20');
+                        /*
+                        FIXME: Linha que faz chamada na api do mapbox para buscar o endereço
+                        */
                         const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?limit=${limit}&country=${country}&access_token=${access_token}&autocomplete=${autocomplete}&types=${tipos}`
 
                         $.getJSON(url, function(geocode) {
@@ -318,6 +321,11 @@ get_header();
                         });
                     }
                 });
+
+
+
+                // HACK para ocultar o campo de CEP quando o usuário não quer preencher o CEP.
+                // COMMENT - Busca o dados do CEP via webservice do ViaCEP.
 
                 //Quando o campo cep perde o foco.
 
