@@ -81,3 +81,33 @@ GET https://nominatim.openstreetmap.org/search.php?street=39+%2F+Rua+Jos%C3%A9+M
 
 
 GET https://nominatim.openstreetmap.org/search.php?street=57+%2F+Rua+Paulina+Castronovo&city=Sorocaba&county=Brasil&state=S%C3%A3o+Paulo&country=Brasil&postalcode=18081230&format=geocodejson HTTP/1.1
+
+# docs do osm
+https://nominatim.org/release-docs/develop/api/Search/
+
+https://nominatim.openstreetmap.org/ui/search.html?street=Rua+Paulina+A.+R.+Castronovo&city=Sorocaba&county=Brasil&state=S%C3%A3o+Paulo&country=Brasil
+
+https://nominatim.openstreetmap.org/ui/search.html?street=39+%2F+Rua+Jos%C3%A9+Maria+Lamaneres&city=Campinas&county=Brasil&state=S%C3%A3o+Paulo&country=Brasil
+
+## projetos - 
+https://viacep.com.br/modulos_e_pacotes/
+https://viacep.com.br/exemplo/javascript/
+
+// COMMENT : Projeto bem interessante para buscar endereços de forma rápida e fácil.
+https://github.com/viniciusm2001/coordenadas-do-cep
+https://www.npmjs.com/package/coordenadas-do-cep
+
+https://github.com/viniciusm2001/coordenadas-do-cep/blob/master/index.js
+
+Coordenadas Do CEP é um pacote do NPM, que, com base em um CEP informado é possível conseguir as informações sobre o mesmo (bairro, logradouro, estado e etc) e ainda sua latitude e longitude (não é 100% preciso, e as vezes se utiliza de aproximação para conseguir as coordenadas do CEP desejado).
+
+https://github.com/giovanigenerali/consultacep
+https://github.com/giovanigenerali/consultacep/blob/master/app.js
+
+
+https://github.com/BrasilAPI/cep-promise
+
+
+
+
+https://codepen.io/EuclidesMarques/pen/vmJdNm
