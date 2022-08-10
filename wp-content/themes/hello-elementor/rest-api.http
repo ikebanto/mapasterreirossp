@@ -1,0 +1,83 @@
+GET https://viacep.com.br/ws/18081230/json/ HTTP/1.1
+
+
+{
+  "cep": "18081-230",
+  "logradouro": "Rua Paulina A. R. Castronovo",
+  "complemento": "",
+  "bairro": "Jardim Abaeté",
+  "localidade": "Sorocaba",
+  "uf": "SP",
+  "ibge": "3552205",
+  "gia": "6695",
+  "ddd": "15",
+  "siafi": "7145"
+}
+
+address = `${numero}%20${rua}%20${bairro}%20${cidade}%20${estado}`;
+
+const limit = '1';
+const country = 'BR';
+const access_token = 'pk.eyJ1IjoicXVpamF1YSIsImEiOiJFZl9JMS00In0.ofdwBdKx6vgBYoSfJOo9Wg';
+                        const autocomplete = true;
+                        const tipos = 'address';
+
+GET https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?limit=${limit}&country=${country}&access_token=${access_token}&autocomplete=${autocomplete}&types=${tipos}
+
+Rua Paulina A. R. Castronovo Jardim Abaeté Sorocaba SP
+
+57 Rua Paulina A. R. Castronovo Jardim Abaeté Sorocaba SP
+
+
+Rua José Maria Lamaneres 39
+Vila Industrial
+Casa de fundos
+CEP: 13035-190
+
+
+39 Rua José Maria Lamaneres 39 Vila Industrial Campinas SP
+
+CEP: 13035-190
+
+
+GET https://api.mapbox.com/geocoding/v5/mapbox.places/57%20Rua%20Paulina%20A.%20R.%20Castronovo%20Jardim Abaeté%20Sorocaba%20SP.json?&country=br&limit=10&proximity=ip&types=address%2Cneighborhood%2Cplace&language=pt&autocomplete=true&access_token=pk.eyJ1IjoicXVpamF1YSIsImEiOiJFZl9JMS00In0.ofdwBdKx6vgBYoSfJOo9Wg HTTP/1.1
+
+
+GET https://api.mapbox.com/geocoding/v5/mapbox.places/39%20Rua%20Jos%C3%A9%20Maria%20Lamaneres%2039%20Vila%20Industrial%20Campinas%20SP.json?&country=br&limit=10&proximity=ip&types=address%2Cneighborhood%2Cplace&language=pt&autocomplete=true&access_token=pk.eyJ1IjoicXVpamF1YSIsImEiOiJFZl9JMS00In0.ofdwBdKx6vgBYoSfJOo9Wg HTTP/1.1
+
+
+
+
+https://docs.mapbox.com/playground/geocoding/?search_text=57%20Rua%20Paulina%20A.%20R.%20Castronovo%20Jardim%20Abaet%C3%A9%20Sorocaba%20SP&country=br&proximity=ip&types=place%2Cpostcode%2Caddress&access_token=pk.eyJ1IjoiZmVybmFuZG9hdmVuYSIsImEiOiJjbDZuMjlqNGEwMmtuM2RsdmllNjdxemRwIn0.uw6hbL4_xAswWNaVTJZ5JA
+
+
+https://api.mapbox.com/geocoding/v5/mapbox.places/57%20Rua%20Paulina%20A.%20R.%20Castronovo%20Jardim%20Abaet%C3%A9%20Sorocaba%20SP.json?country=br&proximity=ip&types=place%2Cpostcode%2Caddress&access_token=pk.eyJ1IjoiZmVybmFuZG9hdmVuYSIsImEiOiJjbDZuMjlqNGEwMmtuM2RsdmllNjdxemRwIn0.uw6hbL4_xAswWNaVTJZ5JA
+
+
+
+GET  https://nominatim.openstreetmap.org/search?q=57+Rua+Paulina+A.+R.+Castronovo+Jardim+Abaeté+Sorocaba+SP
+
+
+
+
+GET  https://nominatim.openstreetmap.org/search?q=57+Rua+Paulina+A.+R.+Castronovo+Jardim+Abaeté+Sorocaba+SP&format=geocodejson HTTP/1.1
+
+
+
+GET https://nominatim.openstreetmap.org/search?q=57+Rua+Paulina+A.+R.+Castronovo+Jardim+Abaeté+Sorocaba+SP&format=geojson HTTP/1.1
+
+
+GET https://nominatim.openstreetmap.org/search?q=17+Strada+Pictor+Alexandru+Romano%2C+Bukarest&format=geojson HTTP/1.1
+
+
+Retorna
+
+
+GET https://nominatim.openstreetmap.org/search.php?street=39+%2F+Rua+Jos%C3%A9+Maria+Lamaneres&city=Campinas&county=Brasil&state=S%C3%A3o+Paulo&country=Brasil&format=json HTTP/1.1
+
+GET https://nominatim.openstreetmap.org/search.php?street=39+%2F+Rua+Jos%C3%A9+Maria+Lamaneres&city=Campinas&county=Brasil&state=S%C3%A3o+Paulo&country=Brasil&format=geojson HTTP/1.1
+
+GET https://nominatim.openstreetmap.org/search.php?street=39+%2F+Rua+Jos%C3%A9+Maria+Lamaneres&city=Campinas&county=Brasil&state=S%C3%A3o+Paulo&country=Brasil&format=geocodejson HTTP/1.1
+
+
+GET https://nominatim.openstreetmap.org/search.php?street=57+%2F+Rua+Paulina+Castronovo&city=Sorocaba&county=Brasil&state=S%C3%A3o+Paulo&country=Brasil&postalcode=18081230&format=geocodejson HTTP/1.1
