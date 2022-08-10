@@ -57,3 +57,6 @@ wp-config.php
 /wp-content/w3tc-*/
 /wp-content/upgrade
 /wp-content/mu-plugins
+
+# https://wordpress.org/themes/hello-elementor/
+!/wp-content/themes/
