@@ -1,79 +1,98 @@
- //Quando o campo cep perde o foco.
- $("#cep_1785").blur(function() {
-    //Nova variável "cep" somente com dígitos.
-    var cep = $(this).val().replace(/\D/g, '');
-    //Verifica se campo cep possui valor informado.
+$(document).ready(function() {
 
-    if (cep != "") {
-        //Expressão regular para validar o CEP.
+    function limpa_formulário_cep() {
+        // Limpa valores do formulário de cep.
+        $("#rua_1785").val("");
+        $("#bairro_1785").val("");
+        $("#cidade_1785").val("");
+        $("#estado_1785").val("");
+        $("#ibge").val("");
+        $("#lat_e_long_foram_preenchidos_1785").val("");
+    }
 
-        var validacep = /^[0-9]{8}$/;
+    function removeStopWords(address) {
+        const stopwords = ['de ', 'a ', 'e ', 'para ', 'do ', 'da '];
+        return address.replace(new RegExp('\\b('+stopwords.join('|')+')\\b', 'g'), '');
+    }
 
-        //Valida o formato do CEP.
+    //Quando o campo cep perde o foco.
+    $("#cep_1785").blur(function() {
+        //Nova variável "cep" somente com dígitos.
+        var cep = $(this).val().replace(/\D/g, '');
+        //Verifica se campo cep possui valor informado.
 
-        if (validacep.test(cep)) {
+        if (cep != "") {
+            //Expressão regular para validar o CEP.
 
-            //Preenche os campos com "..." enquanto consulta webservice.
+            var validacep = /^[0-9]{8}$/;
 
-            $("#rua_1785").val("...");
+            //Valida o formato do CEP.
 
-            $("#bairro_1785").val("...");
+            if (validacep.test(cep)) {
 
-            $("#cidade_1785").val("...");
+                //Preenche os campos com "..." enquanto consulta webservice.
 
-            $("#estado_1785").val("...");
+                $("#rua_1785").val("...");
 
-            $("#ibge").val("...");
+                $("#bairro_1785").val("...");
 
-            //Consulta o webservice viacep.com.br/
+                $("#cidade_1785").val("...");
 
-            $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
+                $("#estado_1785").val("...");
 
-                if (!("erro" in dados)) {
+                $("#ibge").val("...");
 
-                    //Atualiza os campos com os valores da consulta.
+                //Consulta o webservice viacep.com.br/
 
-                    $("#rua_1785").val(dados.logradouro);
+                $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
 
-                    $("#bairro_1785").val(dados.bairro);
+                    if (!("erro" in dados)) {
 
-                    $("#cidade_1785").val(dados.localidade);
+                        //Atualiza os campos com os valores da consulta.
 
-                    $("#estado_1785").val(dados.uf);
+                        $("#rua_1785").val(dados.logradouro);
 
-                    $("#ibge").val(dados.ibge);
+                        $("#bairro_1785").val(dados.bairro);
 
-                } //end if.
-                else {
+                        $("#cidade_1785").val(dados.localidade);
 
-                    //CEP pesquisado não foi encontrado.
+                        $("#estado_1785").val(dados.uf);
 
-                    limpa_formulário_cep();
+                        $("#ibge").val(dados.ibge);
 
-                    alert("CEP não encontrado.");
+                    } //end if.
+                    else {
 
-                }
+                        //CEP pesquisado não foi encontrado.
 
-            });
+                        limpa_formulário_cep();
+
+                        alert("CEP não encontrado.");
+
+                    }
+
+                });
+
+            } //end if.
+            else {
+
+                //cep é inválido.
+
+                limpa_formulário_cep();
+
+                alert("Formato de CEP inválido.");
+
+            }
 
         } //end if.
         else {
 
-            //cep é inválido.
+            //cep sem valor, limpa formulário.
 
             limpa_formulário_cep();
 
-            alert("Formato de CEP inválido.");
-
         }
 
-    } //end if.
-    else {
-
-        //cep sem valor, limpa formulário.
-
-        limpa_formulário_cep();
-
-    }
+    });
 
 });
